@@ -94,6 +94,16 @@ class Matrix {
       }
       this.print();
     }
+
+    transpose() {
+      let result = new Matrix(this.cols, this.rows);
+      for(let row = 0; row < this.rows; row++) {
+        for(let col = 0; col < this.cols; col++) {
+          result.matrix[col][row] = this.matrix[row][col];
+        }
+      }
+      return result;
+    }
     
     print() {
       console.table(this.matrix);
