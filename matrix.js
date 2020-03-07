@@ -122,6 +122,17 @@ class Matrix {
         }
       return result;
     }
+  
+    // this is a very javascript specific way of changing data in a quick manner
+    // this is quite hard to implement in other languages but it is pretty native in js
+    map(func) {
+      for(let row = 0; row < this.rows; row++) {
+        for(let col = 0; col < this.cols; col++) {
+          const val = this.matrix[row][col];
+          this.matrix[row][col] = func(val);
+        }
+      }
+    }
     
     print() {
       console.table(this.matrix);
